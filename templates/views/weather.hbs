@@ -1,0 +1,62 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>links}}
+</head>
+
+<body>
+    {{>navbar}}
+    <div class="container-fluid main_header" style="height:100%;position:relative;">
+        <div class="row">
+            <div class="col-md-12 col-10 mx-auto">
+                <div class="main_content">
+                    <form class="temp_form">
+                        <input type="text" id="cityname" placeholder="Enter Your City Name" autocomplete="off" />
+                        <input type="submit" id="searchBtn" value="Search" />
+                    </form>
+                </div>
+                <div class="tempInformation">
+                    <div class="top_layer">
+                        <p id="day">Tuesday</p>
+                        <p id="today_date">13 OCT</p>
+                    </div>
+                    <div class="main_layer ">
+                        <p id="city_name">Your City's Temperature is</p>
+                        <div class="middle_layer data_hide">
+                            <p id="temp"><span>1</span><sup>o</sup>C</p>
+                            <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- footer section -->
+    <footer>
+        <p>Created with ❤</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        let day = document.getElementById("day");
+        let today_date = document.getElementById("today_date");
+        const getCurrentDay = () => {
+            let weekDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            let currentTime = new Date();
+            let days = weekDay[currentTime.getDay()];
+            let date = currentTime.getDate();
+            let month = currentTime.getMonth();
+            today_date.innerText = `${date} ${months[month]}`;
+            day.innerText = days;
+        }
+        getCurrentDay();
+    </script>
+</body>
+
+
+</html>
