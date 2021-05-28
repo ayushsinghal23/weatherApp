@@ -30,6 +30,9 @@ app.get("/weather", (req, res) => {
 app.get("*", (req, res) => {
 	res.render("404error");
 });
+app.get("*/*", (req, res) => {
+	res.render("404error");
+});
 app.listen(port, () => {
 	console.log(`Listening to port ${port}`);
 });
